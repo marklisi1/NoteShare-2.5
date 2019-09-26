@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @notesheet.content %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @notesheet.course_id %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @notesheet.author_id %>
+</p>
+
+<p>
+  <strong>Date created:</strong>
+  <%= @notesheet.date_created %>
+</p>
+
+<%= link_to 'Edit', edit_notesheet_path(@notesheet) %> |
+<%= link_to 'Back', notesheets_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notesheets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Course</th>
+      <th>Author</th>
+      <th>Date created</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notesheets.each do |notesheet| %>
+      <tr>
+        <td><%= notesheet.content %></td>
+        <td><%= notesheet.course_id %></td>
+        <td><%= notesheet.author_id %></td>
+        <td><%= notesheet.date_created %></td>
+        <td><%= link_to 'Show', notesheet %></td>
+        <td><%= link_to 'Edit', edit_notesheet_path(notesheet) %></td>
+        <td><%= link_to 'Destroy', notesheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notesheet', new_notesheet_path %>
