@@ -13,3 +13,5 @@ It will allow students to collaboratively compile group "notesheets" and give sp
 privileges to the most active contributors. We hope that NoteShare will streamline group
 studying, as well as provide an open line of communication between all students and their
 professors.
+
+Hosted here on Heroku: https://fierce-fjord-88567.herokuapp.com
