@@ -10,5 +10,27 @@
   <%= @course.prof %>
 </p>
 
+
+<table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Author</th>
+      <th>Date Created</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notesheets.each do |notesheet| %>
+      <tr>
+        <td><%= notesheet.content %></td>
+        <td><%= notesheet.author_id %></td>
+        <td><%= notesheet.date_created %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
