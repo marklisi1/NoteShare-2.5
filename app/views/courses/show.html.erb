@@ -17,6 +17,7 @@
       <th>Content</th>
       <th>Author</th>
       <th>Date Created</th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -26,6 +27,12 @@
         <td><%= notesheet.content %></td>
         <td><%= notesheet.author_id %></td>
         <td><%= notesheet.date_created %></td>
+        
+        <!--TODO: add Show, Edit, Destroy options to a notesheet page -->
+        <!-- <td><%= link_to 'Show', notesheet %></td>
+        <td><%= link_to 'Edit', edit_course_path(notesheet) %></td>
+        <td><%= link_to 'Destroy', notesheet, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        
       </tr>
     <% end %>
   </tbody>
