@@ -12,7 +12,8 @@ courselist = [{:name => 'Math', :prof => 'John Doe'},
               {:name => 'History', :prof => 'Mary Oldstuff'},
               {:name => 'Spanish', :prof => 'Dave Spain'},
               {:name => 'Linear Algebra', :prof => 'Mark Matrix'},
-              {:name => 'Probability', :prof => 'Tom Bayes'}
+              {:name => 'Probability', :prof => 'Tom Bayes'},
+              {:name => 'Anthropology', :prof => 'Lebron James'}
               ]
 
 courselist.each do |course|
