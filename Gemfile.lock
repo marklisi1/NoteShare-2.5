@@ -75,6 +75,10 @@ GEM
       rake (< 13.0)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    enumerations (2.3.3)
+      activerecord
+      activesupport
+      i18n
     erubi (1.9.0)
     ffi (1.11.1)
     globalid (0.4.2)
@@ -205,6 +209,7 @@ DEPENDENCIES
   bootsnap (= 1.4.4)
   byebug (= 11.0.1)
   capybara (= 3.28.0)
+  enumerations
   jbuilder (= 2.9.1)
   listen (= 3.1.5)
   pg (= 1.1.4)

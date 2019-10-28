@@ -8,6 +8,7 @@
 
 Course.delete_all
 Notesheet.delete_all
+Users.delete_all
 
 courselist = [{:name => 'Math', :prof => 'John Doe'},
               {:name => 'English', :prof => 'Jane Smith'},
