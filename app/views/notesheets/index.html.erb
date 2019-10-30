@@ -1,25 +1,34 @@
 <p id="notice"><%= notice %></p>
 <title>NoteShare</title>
-<div style="width:100%;height:100;border:1px solid #000; 
-            text-align:center; vertical-align:middle; 
-            line-height:100px; background-color:pink; white-space:nowrap">
-  <%=image_tag("Student_Notes-512.png", alt: "banner", height:'50px', display:"inline")%>
- 
-  <h1 style= "display:inline">N o t e S h a r e</h1>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+<body style="background-color:#C1DFF0">
+<div class="jumbotron" style="background-color:#5bc0de">
+  <h1>NoteShare</h1>
 </div>
-<a href="/courses">Courses</a>
-<a href="/users">Users</a>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 text-center"><a href="/courses" class="btn btn-info" role="button">Courses</a></div>
+    <div class="col-lg-4 text-center"><a href="/notesheets" class="btn btn-info" role="button">Notesheets</a></div>
+    <div class="col-lg-4 text-center"><a href="/users" class="btn btn-info" role="button">Users</a></div>
+  </div>
+</div>
+
 <h1>Notesheets</h1>
 
-<table>
+<table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
   <thead>
     <tr>
       <th>Content</th>
       <th>Course</th>
       <th>Author</th>
-      <th>Date created</th>
-      <th colspan="3"></th>
+      <th>Date Created</th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -41,3 +50,4 @@
 <br>
 
 <%= link_to 'New Notesheet', new_notesheet_path %>
+</body>
