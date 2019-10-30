@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_194548) do
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "type"
+    t.integer "usertype"
   end
 
 end

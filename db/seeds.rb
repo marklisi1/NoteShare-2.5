@@ -8,7 +8,7 @@
 
 Course.delete_all
 Notesheet.delete_all
-Users.delete_all
+User.delete_all
 
 courselist = [{:name => 'Math', :prof => 'John Doe'},
               {:name => 'English', :prof => 'Jane Smith'},
@@ -36,6 +36,12 @@ courselist = [{:name => 'Math', :prof => 'John Doe'},
 courselist.each do |course|
     Course.create!(course)
 end
+
+
+
+User.create!(:name => 'Sarper Tutuncuoglu', :email => 'stutuncuoglu@tulane.edu', :password => 'password', :usertype => :student)
+
+
 
 i = 0
 
