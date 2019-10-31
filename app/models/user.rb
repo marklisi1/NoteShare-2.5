@@ -1,4 +1,6 @@
 class User < ApplicationRecord
-  has_many :courses
-  has_many :notesheets
+    has_many :notesheets
+    has_many :users
+    
+     enum usertype: [:student, :faculty, :admin]
 end

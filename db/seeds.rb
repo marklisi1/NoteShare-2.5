@@ -37,6 +37,12 @@ courselist.each do |course|
     Course.create!(course)
 end
 
+
+
+User.create!(:name => 'Sarper Tutuncuoglu', :email => 'stutuncuoglu@tulane.edu', :password => 'password', :usertype => :student)
+
+
+
 i = 0
 
 Course.all.each do |course|
