@@ -1,3 +1,7 @@
+.btn-info {
+  color: black !important;
+}
+
 body {
   background-color: #fff;
   color: #333;
@@ -22,13 +26,9 @@ pre {
 a {
   color: #000;
 
-  &:visited {
-    color: #666;
-  }
-
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #000;
+    background-color: #428bca;
   }
 }
 

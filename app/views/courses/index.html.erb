@@ -1,3 +1,4 @@
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -8,6 +9,7 @@
 
 <div style="margin-left:25px">
 <h1>Courses</h1>
+<%= link_to 'Create New Course', new_course_path %>
 <p id="notice"><%= notice %></p>
 <table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
   <thead>
@@ -32,6 +34,7 @@
   </tbody>
 </table>
 <br>
+
 <%= link_to 'New Course', new_course_path %>
 
 </div>
