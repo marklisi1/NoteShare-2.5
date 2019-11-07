@@ -1,5 +1,16 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  helper_method :idToModel
+
+
+  def idToModel(id, model)
+    
+      model.find(id)
+    
+  end
+
+
+
 
   # GET /courses
   # GET /courses.json
@@ -72,4 +83,12 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:name, :prof)
     end
+    
+    
+    
+    
+    
+    
+    
+    
 end
