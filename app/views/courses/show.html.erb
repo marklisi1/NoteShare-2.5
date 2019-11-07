@@ -1,3 +1,4 @@
+
 <title>NoteShare</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -6,6 +7,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <body style="background-color:#C1DFF0">
+
 <div style="margin-left:25px">
 <p id="notice"><%= notice %></p>
 
@@ -26,7 +28,6 @@
       <th>Content</th>
       <th>Author</th>
       <th>Date Created</th>
-      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -34,7 +35,7 @@
     <% @notesheets.each do |notesheet| %>
       <tr>
         <td><%= notesheet.content %></td>
-        <td><%= notesheet.author_id %></td>
+        <td><%= idToModel(notesheet.author_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
         
         <!--TODO: add Show, Edit, Destroy options to a notesheet page -->
