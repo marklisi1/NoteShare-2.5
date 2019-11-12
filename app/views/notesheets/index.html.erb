@@ -26,11 +26,10 @@
   <tbody>
     <% @notesheets.each do |notesheet| %>
       <tr>
-        <td><%= notesheet.content %></td>
+        <td><%= link_to notesheet.content, notesheet %></td>
         <td><%= notesheet.course_id %></td>
         <td><%= notesheet.author_id %></td>
         <td><%= notesheet.date_created %></td>
-        <td><%= link_to 'Show', notesheet %></td>
         <td><%= link_to 'Edit', edit_notesheet_path(notesheet) %></td>
         <td><%= link_to 'Destroy', notesheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
