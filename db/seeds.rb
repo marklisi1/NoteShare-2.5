@@ -39,19 +39,8 @@ end
 
 
 
-User.create!(:name => 'Sarper Tutuncuoglu', :email => 'stutuncuoglu@tulane.edu', :password => 'password', :usertype => :student)
 
 
-
-i = 0
-
-Course.all.each do |course|
-  
-  course.notesheets.create!(:content => "Sample note content", :course_id => course.id, :author_id => i, :date_created => "10/17/19")
-  i += 1
-  course.notesheets.create!(:content => "Different sample note content", :course_id => course.id, :author_id => i, :date_created => "10/18/19")
-  i += 1
-end
 
 userlist = [{:name => "Carl Hart", :email => "carl.hart@gmail.com", :password => "apple", :usertype => :student},
             {:name => "Joe Vance", :email => "joe.vance@gmail.com", :password => "banana", :usertype => :student},
@@ -78,3 +67,27 @@ userlist = [{:name => "Carl Hart", :email => "carl.hart@gmail.com", :password =>
 userlist.each do |user|
     User.create!(user)
 end
+
+
+
+
+
+users = User.all
+
+userCount = users.length
+
+i = 0
+
+
+Course.all.each do |course|
+  
+  course.notesheets.create!(:content => "Sample note content", :course_id => course.id, :author_id => users[i % userCount].id, :date_created => "10/17/19")
+  course.notesheets.create!(:content => "Different sample note content", :course_id => course.id, :author_id => users[(i + 1) % userCount].id, :date_created => "10/18/19")
+
+    i += 1
+end
+
+
+
+
+
