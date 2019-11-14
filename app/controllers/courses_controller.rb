@@ -1,13 +1,9 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  helper_method :idToModel
+  #helper_method :idToModel
 
 
-  def idToModel(id, model)
-    
-      model.find(id)
-    
-  end
+  
 
 
 

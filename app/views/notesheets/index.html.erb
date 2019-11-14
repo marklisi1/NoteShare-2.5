@@ -27,8 +27,8 @@
     <% @notesheets.each do |notesheet| %>
       <tr>
         <td><%= notesheet.content %></td>
-        <td><%= notesheet.course_id %></td>
-        <td><%= notesheet.author_id %></td>
+        <td><%= idToModel(notesheet.course_id, Course).name %></td>
+        <td><%= idToModel(notesheet.author_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
         <td><%= link_to 'Show', notesheet %></td>
         <td><%= link_to 'Edit', edit_notesheet_path(notesheet) %></td>

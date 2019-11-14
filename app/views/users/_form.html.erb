@@ -28,11 +28,13 @@
   
   <div class="field">
     <%= form.label :usertype %>
-    <%= form.number_field :usertype %>
+    <%= form.select :usertype, ['Student','Professor','Admin'] %>
+   
   </div>
   
 
   <div class="actions">
     <%= form.submit %>
   </div>
+  
 <% end %>
