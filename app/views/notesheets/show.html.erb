@@ -18,12 +18,12 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @notesheet.course_id %>
+  <%= idToModel(@notesheet.course_id, Course).name %>
 </p>
 
 <p>
   <strong>Author:</strong>
-  <%= @notesheet.author_id %>
+  <%= idToModel(@notesheet.author_id, User).name %>
 </p>
 
 <p>
