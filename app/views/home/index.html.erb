@@ -1,39 +1,48 @@
 <h1>Home</h1>
 <p>Welcome to Noteshare! This homepage is mostly empty, but just you wait</p>
 <body>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=680538159135435&autoLogAppEvents=1"></script>
-
-<div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
-
 <script>
-
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '680538159135435',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v5.0'
+      appId            : '680538159135435',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v5.0'
     });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
+    
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-   
-   FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-   });
-   
-   
+  FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    console.log('logged in')
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+  } else if (response.status === 'not_authorized') {
+    // The user hasn't authorized your application.  They
+    // must click the Login button, or you must call FB.login
+    // in response to a user gesture, to launch a login dialog.
+    console.log('not_authorized')
+
+  } else {
+    // The user isn't logged in to Facebook. You can launch a
+    // login dialog with a user gesture, but the user may have
+    // to log in to Facebook before authorizing your application.
+    console.log('no!')
+    FB.login(function(response){
+      // handle the response 
+    });
+
+  }
+ });
+    
+};
 </script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+<a class="btn btn-info" role="button" onclick="login()">Continue with Facebook</a>
 
 </body>
+<script>
+function login() {
+};
+</script>
 
