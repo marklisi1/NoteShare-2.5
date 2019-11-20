@@ -4,3 +4,4 @@ Feature: Upon clicking the name of a course, you go to that course page
     When you click on the name of a course 
     Then you are brought to the individual course page
       And you can see all corresponding notesheets
+      

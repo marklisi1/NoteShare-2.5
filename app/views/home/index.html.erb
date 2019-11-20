@@ -52,10 +52,20 @@
         'Welcome, ' + response.name + '!';
     });
   }
+  
+  function startLogout(){
+    FB.logout(function(response) {
+      statusChangeCallback(response)
+    });
+  }
+  function startLogin() {
+    FB.login(function(response){
+      statusChangeCallback(response)
+    });
+  }
 </script>
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+<button onclick="startLogin();">Continue with Facebook</button>
+<button onclick="startLogout();">Log Out</button>
 <div id="status">
 </div>
 
