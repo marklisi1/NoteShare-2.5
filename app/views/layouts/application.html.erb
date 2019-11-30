@@ -6,13 +6,12 @@
     <%= csp_meta_tag %>
     <div class="jumbotron" style="background-color:#5bc0de">
       <div class="media">
-        <div class="media-left">
+        <div class="media-left media-middle" style="float:left">
           <%= image_tag asset_path('noteShareLogo.png'), :type =>  'image/png' , :size => "150x120"%>
         </div>
-        <div class="media-body">
+        <div class="media-body media-middle">
           <h1>NoteShare</h1>
         </div>
-        
       </div>
     </div>
 
@@ -24,6 +23,8 @@
         <div class="col-lg-3 text-center"><a href="/users" class="btn btn-info" role="button">Users</a></div>
       </div>
     </div>
+    <br>
+    <div style="font-size:20px; margin:auto; text-align:center" id="status"></div>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

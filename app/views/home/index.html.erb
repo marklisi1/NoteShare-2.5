@@ -1,7 +1,5 @@
-<h1>Home</h1>
-<p>Welcome to Noteshare! This homepage is mostly empty, but just you wait</p>
-<body>
-<script>
+<head>
+  <script>
 
   function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     console.log('statusChangeCallback');
@@ -54,18 +52,30 @@
   }
   
   function startLogout(){
-    FB.logout(function(response) {
+    FB.logout(function(response){
       statusChangeCallback(response)
     });
   }
+  
   function startLogin() {
     FB.login(function(response){
       statusChangeCallback(response)
     });
   }
+  
+  function signUp() {
+    
+  }
 </script>
-<button onclick="startLogin();">Continue with Facebook</button>
-<button onclick="startLogout();">Log Out</button>
+</head>
+
+
+<h1>Home</h1>
+<p>Welcome to Noteshare! This homepage is mostly empty, but just you wait</p>
+<body>
+<a class="btn btn-info" role="button" onclick="startLogin();">Log In with Facebook</a>
+<a class="btn btn-info" role="button" onclick="startLogout();">Log Out</a>
+
 <div id="status">
 </div>
 

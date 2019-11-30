@@ -216,7 +216,7 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should be checked$/ do |label, pa
   end
 end
 
-Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label, parent|
+Then /^the "([^"]*) checkbox(?: within (.*))? should not be checked$/ do |label, parent|
   with_scope(parent) do
     field_checked = find_field(label)['checked']
     if field_checked.respond_to? :should
@@ -251,4 +251,21 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
+end
+
+
+Given("you are on the courses page") do
+  visit courses_path # Write code here that turns the phrase above into concrete actions
+end
+
+When("you click on the name of a course") do
+  click_link "Math"  # Write code here that turns the phrase above into concrete actions
+end
+
+Then("you are brought to the individual course page") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then("you can see all corresponding notesheets") do
+  pending # Write code here that turns the phrase above into concrete actions
 end
