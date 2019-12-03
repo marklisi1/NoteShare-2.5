@@ -7,7 +7,10 @@
 
 <body>
 <h1>Courses</h1>
-<%= link_to 'Create New Course', new_course_path %>
+<div>
+  <%= link_to 'Create New Course', new_course_path, :class => "btn btn-info" %>
+</div>
+
 <p id="notice"><%= notice %></p>
 <table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
   <thead>
@@ -23,10 +26,22 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.id %></td>
-        <td><%= link_to course.name, course %></td>
+        <td style="padding: 5px">
+          <div>
+            <%= link_to course.name, course, :class => "btn btn-link" %>
+          </div>
+        </td>
         <td><%= course.prof %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="padding: 5px;">
+          <div>
+            <%= link_to 'Edit Course Info', edit_course_path(course), :class => "btn btn-warning" %>
+          </div>
+        </td>
+        <td style="padding: 5px;">
+          <div>
+            <%= link_to 'Delete Course', course, :class => "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
