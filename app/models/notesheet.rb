@@ -1,5 +1,6 @@
 class Notesheet < ApplicationRecord
     belongs_to :course
+    mount_uploader :notepic, NotepicUploader
     validates :content, presence: true
     validates :course_id, presence: true
     validates :author_id, presence: true
