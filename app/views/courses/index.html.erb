@@ -1,7 +1,7 @@
 <body>
 <h1>Courses</h1>
 <div>
-  <%= link_to 'Create New Course', new_course_path, :class => "btn btn-info", :style => "color:black"%>
+  <%= link_to 'Create New Course', new_course_path, :class => "btn btn-success", :style => "color:black"%>
 </div>
 
 <p id="notice"><%= notice %></p>
@@ -20,20 +20,14 @@
       <tr>
         <td><%= course.id %></td>
         <td style="padding: 5px">
-          <div>
             <%= link_to course.name, course, :class => "btn btn-link" %>
-          </div>
         </td>
         <td><%= course.prof %></td>
         <td style="padding: 5px;">
-          <div>
             <%= link_to 'Edit Course Info', edit_course_path(course), :class => "btn btn-warning" %>
-          </div>
         </td>
         <td style="padding: 5px;">
-          <div>
-            <%= link_to 'Delete Course', course, :class => "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
-          </div>
+            <%= button_to 'Delete Course', course, :class => "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
         </td>
       </tr>
     <% end %>

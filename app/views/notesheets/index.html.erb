@@ -1,14 +1,10 @@
 <title>NoteShare</title>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 <body>
 <h1>Notesheets</h1>
-<%= link_to 'Create New Notesheet', new_notesheet_path %>
+<div>
+  <%= link_to 'Create New Notesheet', new_notesheet_path, :class => "btn btn-success",  :style => "color:black" %>
+</div>
 <p id="notice"><%= notice %></p>
 <table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
   <thead>
@@ -28,9 +24,15 @@
         <td><%= idToModel(notesheet.course_id, Course).name %></td>
         <td><%= idToModel(notesheet.author_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
-        <td><%= link_to 'Show', notesheet %></td>
-        <td><%= link_to 'Edit', edit_notesheet_path(notesheet) %></td>
-        <td><%= link_to 'Destroy', notesheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="padding:5px">
+          <%= link_to 'Show', notesheet %>
+        </td>
+        <td style="padding:5px">
+            <%= link_to 'Edit Notesheet Info', edit_notesheet_path(notesheet), :class => "btn btn-warning" %>
+        </td>
+        <td style="padding:5px">
+            <%= button_to 'Delete Notesheet', notesheet, :class => "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
+        </td>
       </tr>
     <% end %>
   </tbody>

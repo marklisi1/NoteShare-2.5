@@ -1,14 +1,10 @@
 <title>NoteShare</title>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 <body>
 <h1>Users</h1>
-<%= link_to 'Add New User', new_user_path %>
+<div>
+  <%= link_to 'Add New User', new_user_path, :class => "btn btn-success",  :style => "color:black" %>
+</div>
 <p id="notice"><%= notice %></p>
 <table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
   <thead>
@@ -28,9 +24,13 @@
         <td><%= user.email %></td>
         <td><%= user.password %></td>
         <td><%= user.usertype %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td style="padding:5px"><%= link_to 'Show', user %></td>
+        <td style="padding:5px">
+          <%= link_to 'Edit User Info', edit_user_path(user), :class => "btn btn-warning" %>
+        </td>
+        <td style="padding:5px">
+          <%= button_to 'Destroy', user, method: :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
