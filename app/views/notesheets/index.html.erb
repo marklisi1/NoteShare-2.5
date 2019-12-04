@@ -1,7 +1,7 @@
 <title>NoteShare</title>
 
 <body>
-<h1>Notesheets</h1>
+<h1>My Notesheets</h1>
 <div>
   <%= link_to 'Create New Notesheet', new_notesheet_path, :class => "btn btn-success",  :style => "color:black" %>
 </div>
@@ -9,7 +9,7 @@
 <table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
   <thead>
     <tr>
-      <th>Content</th>
+      <th>Title</th>
       <th>Course</th>
       <th>Author</th>
       <th>Date Created</th>
@@ -20,13 +20,11 @@
   <tbody>
     <% @notesheets.each do |notesheet| %>
       <tr>
-        <td><%= notesheet.content %></td>
+        <!--<td><%= notesheet.content %></td>-->
+        <td><%= link_to notesheet.title, notesheet %></td>
         <td><%= idToModel(notesheet.course_id, Course).name %></td>
         <td><%= idToModel(notesheet.author_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
-        <td style="padding:5px">
-          <%= link_to 'Show', notesheet %>
-        </td>
         <td style="padding:5px">
             <%= link_to 'Edit Notesheet Info', edit_notesheet_path(notesheet), :class => "btn btn-warning" %>
         </td>

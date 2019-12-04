@@ -12,15 +12,23 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  
+  <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
-
+  
   <div class="field">
     <%= form.label :course_id %>
     <%= form.collection_select :course_id, Course.order(:name),:id,:name, include_blank: true %>
   </div>
 
+  <div class="field">
+    <%= form.file_field :notepics, multiple: true %>
+  </div>
 
   <div class="field">
     <%= form.label :author_id %>
@@ -29,7 +37,7 @@
 
   <div class="field">
     <%= form.label :date_created %>
-    <%= form.text_field :date_created %>
+    <%= form.date_field :date_created %>
   </div>
 
   <div class="actions">
