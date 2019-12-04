@@ -9,10 +9,6 @@
 <body>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @notesheet.content %>
-</p>
 
 <p>
   <strong>Course:</strong>
@@ -28,6 +24,21 @@
   <strong>Date created:</strong>
   <%= @notesheet.date_created %>
 </p>
+
+<% unless @notesheet.content.nil? %>
+  <p>
+    <strong>Content:</strong>
+    <%= @notesheet.content %>
+  </p>
+<%end%>
+
+<% unless @notesheet.notepic.file.nil? %>
+  <p>
+    <strong>Image: </strong>
+    <%= @notesheet.notepic %>
+  </p>
+<%end%>
+
 
 <%= link_to 'Edit', edit_notesheet_path(@notesheet) %> |
 <%= link_to 'Back', notesheets_path %>
