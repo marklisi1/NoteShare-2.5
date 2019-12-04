@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_202517) do
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "prof"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,13 +31,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_202517) do
     t.string "notepic"
   end
 
-  create_table "uploads", force: :cascade do |t|
-    t.string "name"
-    t.string "attachment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -46,15 +40,13 @@ ActiveRecord::Schema.define(version: 2019_12_03_202517) do
     t.integer "usertype"
     t.string "provider"
     t.string "uid"
-    t.string "token"
-    t.integer "expires_at"
-    t.boolean "expires"
-    t.string "refresh_token"
-    t.string "encrypted_password", limit: 128
-    t.string "confirmation_token", limit: 128
-    t.string "remember_token", limit: 128
-    t.index ["email"], name: "index_users_on_email"
-    t.index ["remember_token"], name: "index_users_on_remember_token"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.text "image"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
