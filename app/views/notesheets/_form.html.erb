@@ -1,4 +1,5 @@
-<%= form_with(model: notesheet, local: true) do |form| %>
+
+<%= bootstrap_form_with(model: notesheet, local: true) do |form| %>
   <% if notesheet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(notesheet.errors.count, "error") %> prohibited this notesheet from being saved:</h2>
@@ -10,37 +11,47 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :course_id %>
-    <%= form.collection_select :course_id, Course.order(:name),:id,:name, include_blank: true %>
-  </div>
-
-  <div class="field">
-    <%= form.file_field :notepics, multiple: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :author_id %>
-    <%= form.collection_select :author_id, User.order(:name),:id,:name, include_blank: true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_created %>
-    <%= form.date_field :date_created %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="w-50 p-3" style="background-color:#F0F0F0">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= form.collection_select :course_id, Course.order(:name),:id,:name, include_blank: true %>
+        </div>
+    
+        <div class="form-group col-md-6">
+          <%= form.text_field :title, class: "form-control hidden"%>
+        </div>
+      </div>
+      
+      <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+        <li class="active"><a data-toggle="tab" href="#textentry" style="color: #333;">Text Entry</a></li>
+        <pre>   </pre>
+        <li style="padding-right: 10px"><a data-toggle="tab" href="#uploading" style="color: #333;">Upload a File</a></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="textentry" class="tab-pane fade in active">
+          <%= form.text_area :content %>
+        </div>
+        <div id="uploading" class="tab-pane fade">
+          <div class="field">
+            <%= form.file_field :notepics, multiple: true %>
+          </div>
+        </div>
+      </div>
+    
+      <div class="field">
+        <%= form.collection_select :author_id, User.order(:name),:id,:name, include_blank: true %>
+      </div>
+    
+      <div class="field">
+        <%= form.date_field :date_created, max: Date.today, value: Date.today %>
+      </div>
+    
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </form>
   </div>
 <% end %>
+

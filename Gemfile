@@ -10,6 +10,7 @@ gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.4'
 gem 'enumerations', require: false
 gem 'carrierwave', '~> 2.0'
+gem "bootstrap_form", "~> 4.0"
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
