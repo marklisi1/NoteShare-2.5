@@ -1,7 +1,7 @@
-Feature: Upon clicking the name of a course, you go to that course page
+Feature: Generating a new course
   Scenario: You are a student logged into the website
-    Given you are on the courses page
-    When you click on the name of a course 
-    Then you are brought to the individual course page
-      And you can see all corresponding notesheets
+    Given you are on the home page
+    When you click on the Courses button
+    Then you are brought to the Courses table
+      And you can click Create New Course
       

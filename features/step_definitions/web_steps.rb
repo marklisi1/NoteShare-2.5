@@ -254,18 +254,18 @@ Then /^show me the page$/ do
 end
 
 
-Given("you are on the courses page") do
-  visit courses_path # Write code here that turns the phrase above into concrete actions
+Given("you are on the home page") do
+  visit root_path # Write code here that turns the phrase above into concrete actions
 end
 
-When("you click on the name of a course") do
-  click_link "Math"  # Write code here that turns the phrase above into concrete actions
+When("you click on the Courses button") do
+  click_link "Courses"  # Write code here that turns the phrase above into concrete actions
 end
 
-Then("you are brought to the individual course page") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("you are brought to the Courses table") do
+  expect(page).to have_content("Create New Course")
 end
 
-Then("you can see all corresponding notesheets") do
-  pending # Write code here that turns the phrase above into concrete actions
+And("you can click Create New Course") do
+  click_link "Create New Course"
 end

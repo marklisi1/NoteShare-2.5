@@ -8,7 +8,6 @@
 <table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Course Name</th>
       <th>Professor</th>
       <th colspan="2">Actions</th>
@@ -18,7 +17,6 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td><%= course.id %></td>
         <td style="padding: 5px">
             <%= link_to course.name, course, :class => "btn btn-link" %>
         </td>
