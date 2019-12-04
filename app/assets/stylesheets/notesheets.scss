@@ -1,3 +1,12 @@
 // Place all the styles related to the Notesheets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hidden{
+  display: none;
+}
+
+.nav-tabs{border-bottom:1px solid #ddd}
+.nav-tabs>li{float:left;margin-bottom:-1px}
+.nav-tabs>li>a{margin-right:2px;line-height:1.42857143;border:1px solid transparent;border-radius:4px 4px 0 0}
+.nav-tabs>li>a:hover{border-color:#eee #eee #ddd}
