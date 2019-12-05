@@ -1,4 +1,4 @@
-<%= bootstrap_form_with(model: notesheet, local: true) do |form| %>
+<%= bootstrap_form_for(@notesheet) do |form| %>
   <% if notesheet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(notesheet.errors.count, "error") %> prohibited this notesheet from being saved:</h2>
@@ -38,6 +38,7 @@
             <%= image_tag(@notesheet.notepics_url) if @notesheet.notepic? %>
             <%= form.file_field :notepic, hide_label: true%>
             <%= form.hidden_field :notepic_cache %>
+            
             <script type="application/javascript">
               $('.custom-file-input').change(function(e){
                   var fileName = e.target.files[0].name;
@@ -65,4 +66,5 @@
   
   
 <% end %>
+
 

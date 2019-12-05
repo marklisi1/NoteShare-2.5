@@ -65,10 +65,12 @@ class NotesheetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_notesheet
       @notesheet = Notesheet.find(params[:id])
+      
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notesheet_params
-      params.require(:notesheet).permit(:content, :title, :course_id, :author_id, :date_created)
+      params.require(:notesheet).permit(:content, :title, :course_id, :author_id, :date_created, :notepic, :notepic_cache)
     end
 end

@@ -32,14 +32,13 @@
   </p>
 <%end%>
 
-<% unless @notesheet.notepic.file.nil? %>
-  <p>
-    <strong>Image: </strong>
-    <%= @notesheet.notepic %>
-  </p>
-<%end%>
+<%= image_tag(@notesheet.notepic.url, alt: 'Image of notes') if @notesheet.notepic? %>
 
 
-<%= link_to 'Edit', edit_notesheet_path(@notesheet) %> |
+
+
+
+<%= link_to 'Edit', edit_notesheet_path(@notesheet) %> 
 <%= link_to 'Back', notesheets_path %>
+
 </body>

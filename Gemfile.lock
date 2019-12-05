@@ -293,6 +293,7 @@ DEPENDENCIES
   jbuilder (= 2.9.1)
   launchy
   listen (= 3.1.5)
+  mini_magick
   omniauth-facebook
   pg (= 1.1.4)
   puma (= 3.12.1)
