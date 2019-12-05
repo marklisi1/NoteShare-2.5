@@ -1,5 +1,6 @@
 class Notesheet < ApplicationRecord
     belongs_to :course
+    
     mount_uploader :notepic, NotepicUploader
     validates :content, presence: true, unless: ->(notesheet){notesheet.notepic.present?}
     validates :notepic, presence: true, unless: ->(notesheet){notesheet.content.present?}
