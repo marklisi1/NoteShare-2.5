@@ -22,7 +22,7 @@
 <table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
   <thead>
     <tr>
-      <th>Content</th>
+      <th>Title</th>
       <th>Author</th>
       <th>Date Created</th>
     </tr>
@@ -31,7 +31,7 @@
   <tbody>
     <% @notesheets.each do |notesheet| %>
       <tr>
-        <td><%= notesheet.content %></td>
+        <td><%= link_to notesheet.title, notesheet %></td>
         <td><%= idToModel(notesheet.author_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
         
