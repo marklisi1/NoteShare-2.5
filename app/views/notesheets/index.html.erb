@@ -23,7 +23,7 @@
         <!--<td><%= notesheet.content %></td>-->
         <td><%= link_to notesheet.title, notesheet %></td>
         <td><%= idToModel(notesheet.course_id, Course).name %></td>
-        <td><%= idToModel(notesheet.author_id, User).name %></td>
+        <td><%= idToModel(notesheet.user_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
         <td style="padding:5px">
             <%= link_to 'Edit Notesheet Info', edit_notesheet_path(notesheet), :class => "btn btn-warning" %>
