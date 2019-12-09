@@ -31,7 +31,7 @@
   <tbody>
     <% @notesheets.each do |notesheet| %>
       <tr>
-        <td><%= link_to notesheet.title, notesheet %></td>
+        <td><%= notesheet.content %></td>
         <td><%= idToModel(notesheet.author_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
         
