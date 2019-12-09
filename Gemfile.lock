@@ -82,6 +82,9 @@ GEM
       image_processing (~> 1.1)
       mimemagic (>= 0.3.0)
       mini_mime (>= 0.1.3)
+    carrierwave-imageoptimizer (1.4.1)
+      carrierwave (>= 0.8, < 2.1)
+      image_optimizer (~> 1.6)
     childprocess (2.0.0)
       rake (< 13.0)
     concurrent-ruby (1.1.5)
@@ -126,6 +129,7 @@ GEM
     hashie (3.6.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    image_optimizer (1.8.0)
     image_processing (1.9.3)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.13, < 3)
@@ -178,7 +182,7 @@ GEM
       omniauth (~> 1.9)
     pg (1.1.4)
     public_suffix (4.0.1)
-    puma (3.12.1)
+    puma (3.12.2)
     rack (2.0.7)
     rack-proxy (0.6.5)
       rack
@@ -286,6 +290,7 @@ DEPENDENCIES
   byebug (= 11.0.1)
   capybara (= 3.28.0)
   carrierwave (~> 2.0)
+  carrierwave-imageoptimizer
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
@@ -296,7 +301,7 @@ DEPENDENCIES
   mini_magick
   omniauth-facebook
   pg (= 1.1.4)
-  puma (= 3.12.1)
+  puma (= 3.12.2)
   rails (= 6.0.0)
   rspec-expectations
   sass-rails (= 5.1.0)
