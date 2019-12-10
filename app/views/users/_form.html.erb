@@ -46,8 +46,8 @@
       console.log('Successful login for: ' + response.name);
       console.log('ID: ' + response.id)
       console.log('Email: ' + response.email)
-      document.getElementById('staticName').setAttribute('value', response.name)
-      document.getElementById('staticEmail').setAttribute('value', response.email)
+      document.getElementById('nameID').setAttribute('value', response.name)
+      document.getElementById('emailID').setAttribute('value', response.email)
       console.log('Picture: ' + response.picture)
       
       document.getElementById('status').innerHTML =
@@ -89,18 +89,15 @@
   <div class="w-50 p-3" style="background-color:#F0F0F0">
     <form>
       <div class="field">
-        <%= form.label :name %>
-        <input type="text" readonly class="form-control" id="staticName">
+        <%= form.text_field :name, :readonly => true, :id => "nameID"%>
       </div>
       
       <div class="field">
-        <%= form.label :email %>
-        <input type="text" readonly class="form-control" id="staticEmail">
+        <%= form.text_field :email, :readonly => true, :value => 's' , :id => "emailID"%>
       </div>
-      
+    
       <div class="field">
-        <%= form.label :password %>
-        <input type="password" id="inputPassword" class="form-control" aria-describedby="passwordHelpBlock">
+        <%= form.text_field :password, :class => "form-control", :type => "password" %>
       </div>
       
       <div class="field">
