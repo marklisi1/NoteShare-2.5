@@ -5,7 +5,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+<style>
+  .noteimages{
+    width: 600px;
+  }
+</style>
 <body>
 <p id="notice"><%= notice %></p>
 
@@ -32,10 +36,11 @@
   </p>
 <%end%>
 
-<%= image_tag(@notesheet.notepic.url, alt: 'Image of notes') if @notesheet.notepic? %>
-
-
-
+<div class="w-50 p-3" style="background-color:#F0F0F0">
+  <div class="noteimages">
+    <%= image_tag(@notesheet.notepic.url, alt: 'Image of notes') if @notesheet.notepic? %>
+  </div>
+</div>
 
 
 <%= link_to 'Edit', edit_notesheet_path(@notesheet) %> 

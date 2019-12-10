@@ -25,9 +25,18 @@ class NotesheetsController < ApplicationController
   # POST /notesheets.json
   def create
     @notesheet = Notesheet.new(notesheet_params)
-
+    
     respond_to do |format|
       if @notesheet.save
+        if @notesheet.content 
+            
+            path = "#{@notesheet.title}-#{@notesheet.id}.txt"
+            File.open(path, "w+") do |f|
+              f.write(@notesheet.content)
+              @notesheet.notepic = f
+            end
+            @notesheet.save!
+        end
         format.html { redirect_to @notesheet, notice: 'Notesheet was successfully created.' }
         format.json { render :show, status: :created, location: @notesheet }
       else
@@ -67,7 +76,7 @@ class NotesheetsController < ApplicationController
       @notesheet = Notesheet.find(params[:id])
 
     end
-
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def notesheet_params
       params.require(:notesheet).permit(:content, :title, :course_id, :author_id, :date_created, :notepic, :notepic_cache)
