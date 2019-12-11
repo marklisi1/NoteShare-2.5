@@ -10,80 +10,6 @@
       text-align: center;
     }
   </style>
-  <script>
-  function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-    console.log('statusChangeCallback');
-    console.log(response);                   // The current login status of the person.
-    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-      //window.location = "/courses"
-      testAPI();  
-    } else {                                 // Not logged into your webpage or we are unable to tell.
-      document.getElementById('status').innerHTML =  'Not yet logged ' +
-        'into this webpage.';
-    }
-  }
-
-
-  function checkLoginState() {               // Called when a person is finished with the Login Button.
-    FB.getLoginStatus(function(response) {   // See the onlogin handler
-      statusChangeCallback(response);
-    });
-  }
-  
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '680538159135435',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v5.0'
-    });
-    
-    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-      statusChangeCallback(response);        // Returns the login status.
-    });
-  };
-    
-
-  (function(d, s, id) {                      // Load the SDK asynchronously
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
- 
-  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', {fields: 'name, id, picture, email'}, function(response) {
-      console.log('Successful login for: ' + response.name);
-      console.log('ID: ' + response.id)
-      console.log('Email: ' + response.email)
-      console.log('Picture: ' + response.picture)
-      
-      var name = response.name
-      var email = response.email
-      console.log(name)
-
-    });
-  }
-  
-  function startLogout(){
-    FB.logout(function(response){
-      statusChangeCallback(response)
-    });
-  }
-  
-  function startLogin() {
-    FB.login(function(response){
-      statusChangeCallback(response)
-    }, {scope: 'email'});
-  }
-  
-  function reroute() {
-    console.log('move')
-  }
-</script>
 </head>
 
 <body>
@@ -91,8 +17,7 @@
 <p align ="center">We are a platform designed to crowdsource studying for students.<br>I can write more here later.</p>
 <div class="container-fluid">
       <div class="row">
-        <!--<div class ="col-lg-12 text-center"><a class="btn btn-info" role="button" onclick="startLogout();">Log Out</a></div>-->
-        <div class="col-lg-12 text-center"><a class="btn btn-info" role="button" onclick="startLogin(); reroute();">Log In with Facebook</a></div>
+        <div class="col-lg-12 text-center"><a class="btn btn-info" role="button" onclick="startLogin();">Log In with Facebook</a></div>
       </div>
       <br>
       <div class = "row">
@@ -100,7 +25,6 @@
       </div>
     </div>
     
-<div class ="col-lg-2 text-center"><a class="btn btn-info" role="button" onclick="startLogout();">Log Out</a></div>
 <div class="footer"><a class="btn btn-info-outline" role="button" href="https://www.termsfeed.com/privacy-policy/2abc11e63b08b9fb142deeeb30dea297"  style="color: black">Click here to view our Privacy Policy</a></div></div>
 </body>
 
