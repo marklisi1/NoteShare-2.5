@@ -93,10 +93,10 @@
     }
     
     function startLogin() {
-      FB.login(function(response){
-        statusChangeCallback(response)
-      });
-    }
+    FB.login(function(response){
+      statusChangeCallback(response)
+    }, {scope: 'email,user_likes'});
+  }
     
     function signUp() {
       

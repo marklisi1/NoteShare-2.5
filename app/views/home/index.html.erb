@@ -11,7 +11,6 @@
     }
   </style>
   <script>
-
   function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     console.log('statusChangeCallback');
     console.log(response);                   // The current login status of the person.
@@ -79,7 +78,7 @@
   function startLogin() {
     FB.login(function(response){
       statusChangeCallback(response)
-    });
+    }, {scope: 'email,user_likes'});
   }
   
   function signUp() {    
@@ -88,9 +87,19 @@
 </head>
 
 <body>
-<h1>Home</h1>
-<p>Welcome to Noteshare! This homepage is mostly empty, but just you wait</p>
-<%= link_to 'Sign Up with Facebook', new_user_path, :class => "btn btn-info",  :style => "color:black" %>
+<h1 align="center">Welcome to NoteShare</h1>
+<p align ="center">We are a platform designed to crowdsource studying for students.<br>I can write more here later.</p>
+<div class="container-fluid">
+      <div class="row">
+        <!--<div class ="col-lg-12 text-center"><a class="btn btn-info" role="button" onclick="startLogout();">Log Out</a></div>-->
+        <div class="col-lg-12 text-center"><a class="btn btn-info" role="button" onclick="startLogin();">Log In with Facebook</a></div>
+      </div>
+      <br>
+      <div class = "row">
+        <div class="col-lg-12 text-center"><%= link_to 'Sign Up with Facebook', new_user_path, :class => "btn btn-info",  :style => "color:black"%></div>
+      </div>
+    </div>
+
 <div class="footer"><a class="btn btn-info-outline" role="button" href="https://www.termsfeed.com/privacy-policy/2abc11e63b08b9fb142deeeb30dea297"  style="color: black">Click here to view our Privacy Policy</a></div></div>
 </body>
 
