@@ -32,7 +32,7 @@
     <% @notesheets.each do |notesheet| %>
       <tr>
         <td><%= notesheet.content %></td>
-        <td><%= idToModel(notesheet.author_id, User).name %></td>
+        <td><%= idToModel(notesheet.user_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
         
         <!--TODO: add Show, Edit, Destroy options to a notesheet page -->
