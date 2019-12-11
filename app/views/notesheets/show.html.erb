@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <title>NoteShare</title>
 
 <meta charset="utf-8">
@@ -21,7 +22,7 @@
 
 <p>
   <strong>Author:</strong>
-  <%= idToModel(@notesheet.author_id, User).name %>
+  <%= idToModel(@notesheet.user_id, User).name %>
 </p>
 
 <p>
@@ -43,7 +44,13 @@
 </div>
 
 
-<%= link_to 'Edit', edit_notesheet_path(@notesheet) %> 
-<%= link_to 'Back', notesheets_path %>
+
+
+<%= link_to( edit_notesheet_path(@notesheet)) do%>
+  <i class="fas fa-edit", style='color:#000000'></i>Edit
+<%end%>
+
+<%= link_to 'Back', notesheets_path, :style=>'color:#000000;' %>
+
 
 </body>
