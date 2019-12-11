@@ -31,7 +31,6 @@
   <thead class = "thead-light">
     <tr>
       <th>Title</th>
-      <th>Course</th>
       <th>Author</th>
       <th>Date Created</th>
       <th>Download</th>
@@ -44,7 +43,6 @@
     <% @notesheets.each do |notesheet| %>
       <tr>
         <td><%= link_to notesheet.title, notesheet, :style=>'color:#000000;' %></td>
-        <td><%= idToModel(notesheet.course_id, Course).name %></td>
         <td><%= idToModel(notesheet.user_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
         <td>
