@@ -1,3 +1,12 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<style style="text/css">
+	/* Define the default color for all the table rows */
+	/* Define the hover highlight color for the table row */
+  .hoverTable tbody tr:hover {
+    background-color: #F2F4F4;
+  }
+</style>
+
 <title>NoteShare</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,40 +17,46 @@
 <body>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Course:</strong>
-  <%= @course.name %>
-</p>
+<h2><%= @course.name %></h2>
 
 <p>
-  <strong>Prof:</strong>
+  <strong>Professor:</strong>
   <%= @course.prof %>
 </p>
-
-
-<table width="60%", border-collapse="collapse", border="1px solid #00F", cellspacing="0">
-  <thead>
+<div>
+  <%= link_to '+ Create New Notesheet', new_notesheet_path, :class => "btn btn-outline-secondary",  :style => "color:black" %>
+</div>
+<p id="notice"><%= notice %></p>
+<table id="dt" class="table table-bordered table-sm hoverTable" cellspacing="0" width="100%">
+  <thead class = "thead-light">
     <tr>
       <th>Title</th>
+      <th>Course</th>
       <th>Author</th>
       <th>Date Created</th>
+      <th>Download</th>
+      <th>Edit</th>
+      <!--<th colspan="2">Actions</th>-->
     </tr>
   </thead>
 
   <tbody>
     <% @notesheets.each do |notesheet| %>
       <tr>
-        <td><%= notesheet.content %></td>
+        <td><%= link_to notesheet.title, notesheet, :style=>'color:#000000;' %></td>
+        <td><%= idToModel(notesheet.course_id, Course).name %></td>
         <td><%= idToModel(notesheet.user_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
-        
-        <!--TODO: add Show, Edit, Destroy options to a notesheet page -->
-        <!-- <td><%= link_to 'Show', notesheet %></td>
-        <td><%= link_to 'Edit', edit_course_path(notesheet) %></td>
-        <td><%= link_to 'Destroy', notesheet, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-        
+        <td>
+          <a href=<%=notesheet.notepic.url%> download><i class="fas fa-file-download", style='color:#000000'></i><a>
+        </td>
+        <td>
+          <a href=<%=edit_notesheet_path(notesheet)%>><i class="fas fa-edit", style='color:#000000'></i><a>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<br>
+
 </body>
