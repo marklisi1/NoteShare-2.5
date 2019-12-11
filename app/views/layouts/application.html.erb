@@ -21,18 +21,17 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-2 text-center"><a href="/" class="btn btn-info" role="button" style="color: black">Home</a></div>
-        <div class="col-lg-2 text-center"><a href="/courses" class="btn btn-info" role="button" style="color: black">Courses</a></div>
-        <div class="col-lg-2 text-center"><a href="/notesheets" class="btn btn-info" role="button" style="color: black">Notesheets</a></div>
-        <div class="col-lg-2 text-center"><a href="/users" class="btn btn-info" role="button" style="color: black">Users</a></div>
-        <div class ="col-lg-2 text-center"><a class="btn btn-info" role="button" onclick="startLogin();">Log In with Facebook</a></div>
-        <div class ="col-lg-2 text-center"><a class="btn btn-info" role="button" onclick="startLogout();">Log Out</a></div>
-      </div>
-    </div>
+    <!--<div class="container-fluid">-->
+    <!--  <div class="row">-->
+    <!--    <div class="col-lg-2 text-center"><a href="/" class="btn btn-info" role="button" style="color: black">Home</a></div>-->
+    <!--    <div class="col-lg-2 text-center"><a href="/courses" class="btn btn-info" role="button" style="color: black">Courses</a></div>-->
+    <!--    <div class="col-lg-2 text-center"><a href="/notesheets" class="btn btn-info" role="button" style="color: black">Notesheets</a></div>-->
+    <!--    <div class="col-lg-2 text-center"><a href="/users" class="btn btn-info" role="button" style="color: black">Users</a></div>-->
+    <!--    <div class ="col-lg-2 text-center"><a class="btn btn-info" role="button" onclick="startLogin();">Log In with Facebook</a></div>-->
+    <!--    <div class ="col-lg-2 text-center"><a class="btn btn-info" role="button" onclick="startLogout();">Log Out</a></div>-->
+    <!--  </div>-->
+    <!--</div>-->
     <br>
-    <div style="font-size:20px; margin:auto; text-align:center" id="status"></div>
     
   <!-- FACEBOOK LOGIN SCRIPT -->
   <script>
@@ -95,7 +94,7 @@
     function startLogin() {
     FB.login(function(response){
       statusChangeCallback(response)
-    }, {scope: 'email,user_likes'});
+    }, {scope: 'email'});
   }
     
     function signUp() {

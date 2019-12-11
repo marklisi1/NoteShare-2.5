@@ -78,7 +78,7 @@
   function startLogin() {
     FB.login(function(response){
       statusChangeCallback(response)
-    }, {scope: 'email,user_likes'});
+    }, {scope: 'email'});
   }
   
   function signUp() {    
