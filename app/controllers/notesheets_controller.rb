@@ -79,6 +79,6 @@ class NotesheetsController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def notesheet_params
-      params.require(:notesheet).permit(:content, :title, :course_id, :author_id, :date_created, :notepic, :notepic_cache)
+      params.require(:notesheet).permit(:content, :title, :course_id, :user_id, :date_created, :notepic, :notepic_cache)
     end
 end

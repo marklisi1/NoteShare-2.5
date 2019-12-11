@@ -61,7 +61,7 @@ userlist = [{:name => "Carl Hart", :email => "carl.hart@gmail.com", :password =>
             {:name => "Mary Fraser", :email => "mary.fraser@gmail.com", :password => "mango"},
             {:name => "Boris Reid", :email => "boris.reid@gmail.com", :password => "grape"},
             {:name => "Sarah Hemmings", :email => "sarah.hemmings@gmail.com", :password => "lemon"},
-            {:name => "Trevor Dowd", :email => "trevor.dowd@gmail.com", :password => "lime"}
+            {:name => "Trevor Dowd", :email => "trevor.dowd@gmail.com", :password => "lime", :usertype => "Student"}
             ]
 
 userlist.each do |user|
