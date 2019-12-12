@@ -342,6 +342,3 @@ DEPENDENCIES
   web-console (= 4.0.1)
   webdrivers (= 4.1.2)
   webpacker (= 4.0.7)
-
-BUNDLED WITH
-   1.17.2
