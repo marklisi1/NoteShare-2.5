@@ -123,7 +123,7 @@ GEM
       activesupport
       i18n
     erubi (1.9.0)
-    faraday (0.17.0)
+    faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     fb_graph2 (1.1.1)
       activesupport (>= 3.2)
@@ -344,4 +344,4 @@ DEPENDENCIES
   webpacker (= 4.0.7)
 
 BUNDLED WITH
-  1.17.2
+   1.17.2
