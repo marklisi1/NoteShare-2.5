@@ -47,12 +47,9 @@
 <br>
 
 <br>
-<%= link_to(notesheets_path(@notesheet), :style=>'color:#000000') do%>
-  <i class="fas fa-chevron-circle-left", style='color:#000000'></i>Back
-<%end%>
-
-
-
+<%= link_to 'Back to Courses', courses_path, :class => "btn btn-default",  :style => "color:black" %>
+<br>
+<%= link_to 'Back to My Notesheets', notesheets_path, :class => "btn btn-default",  :style => "color:black" %>
 
 
 </body>
