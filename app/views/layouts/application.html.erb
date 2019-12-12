@@ -47,7 +47,7 @@
   
     function checkLoginState() {               // Called when a person is finished with the Login Button.
       FB.getLoginStatus(function(response) {   // See the onlogin handler
-        statusChangeCallback(response);
+        console.log('got toke');
       });
     }
     
@@ -97,10 +97,20 @@
     
     function reroute(response){
       if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+        console.log(response.authResponse.accessToken);
         window.location = "/courses"  
       } else {                                 // Not logged into your webpage or we are unable to tell.
         window.location = "/"
       }
+    }
+    
+    function welcome(){
+      
+      FB.api('/me', function(response) {
+        console.log('Successful login for: ' + response.name);
+        document.getElementById('welcomehead').innerHTML =
+          'Welcome, ' + response.name + '!';
+      });
     }
       
     
@@ -110,6 +120,7 @@
   
   </head>
   <body style="background-color:white">
+    
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

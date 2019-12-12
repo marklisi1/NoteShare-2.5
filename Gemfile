@@ -13,7 +13,7 @@ gem 'carrierwave', '~> 2.0'
 gem "bootstrap_form", "~> 4.0"
 gem "mini_magick"
 gem 'carrierwave-imageoptimizer'
-gem 'nokogiri'
+gem "koala"
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
