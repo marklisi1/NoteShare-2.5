@@ -48,7 +48,7 @@
   </thead>
 
   <tbody>
-    <% @courses.each do |course| %>
+    <% $currentUser.courses.each do |course| %>
       <tr>
         <td style="padding: 5px">
             <%= link_to course.name, course, :class => "btn btn-link", :style=>'color:#000000;' %>
@@ -65,4 +65,7 @@
   <%= link_to '+ Join a Class', new_course_path, :class => "btn btn-outline-secondary",  :style => "color:black" %>
 </div>
 
+<div>
+  <%= link_to 'Your Notesheets', notesheets_path, :class => "btn btn-outline-secondary",  :style => "color:black" %>
+</div>
 </body>

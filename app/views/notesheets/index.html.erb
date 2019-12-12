@@ -30,7 +30,7 @@
   </thead>
 
   <tbody>
-    <% @notesheets.each do |notesheet| %>
+    <% $currentUser.notesheets.each do |notesheet| %>
       <tr>
         <td><%= link_to notesheet.title, notesheet, :style=>'color:#000000;' %></td>
         <td><%= idToModel(notesheet.course_id, Course).name %></td>
