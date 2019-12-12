@@ -109,8 +109,8 @@ x = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem
 y = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
 Course.all.each do |course|
   
-  course.notesheets.create!(:title => "Unit #{i}", :course_id => course.id, :user_id => users[i % userCount].id, :date_created => "10/17/19", :content => "#{x}")
-  course.notesheets.create!(:title => "Unit #{i+1}", :content => "#{y}", :course_id => course.id, :user_id => users[(i + 1) % userCount].id, :date_created => "10/18/19")
+  course.notesheets.create!(:title => "Unit #{i}", :course_id => course.id, :user_id => users[i % userCount].id, :date_created => "2019-11-24", :content => "#{x}")
+  course.notesheets.create!(:title => "Unit #{i+1}", :content => "#{y}", :course_id => course.id, :user_id => users[(i + 1) % userCount].id, :date_created => "2019-12-1")
 
     i += 1
 end

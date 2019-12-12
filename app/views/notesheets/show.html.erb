@@ -12,6 +12,14 @@
   }
 </style>
 <body>
+
+<% auth = FbGraph2::Auth.new('680538159135435', '728f73e88988a9e5c94e879431252701') %>
+<% signed_request = auth.from_cookie cookies %>
+<% graph = Koala::Facebook::API.new(signed_request.access_token) %>
+<% user = graph.get_object('me', fields:'email') %>
+<% $currentUserEmail = user['email'] %>
+<% $currentUser = User.find_by(email: $currentUserEmail) %>
+
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Course:</strong>
@@ -41,9 +49,11 @@
 </div>
 
 
-<%= link_to(edit_notesheet_path(@notesheet), :style=>'color:#000000') do%>
-  <i class="fas fa-edit", style='color:#000000'></i>Edit
-<%end%>
+<% if $currentUser.notesheets.include? @notesheet %>
+  <%= link_to(edit_notesheet_path(@notesheet), :style=>'color:#000000') do%>
+    <i class="fas fa-edit", style='color:#000000'></i>Edit
+  <%end%>
+<% end %>
 <br>
 
 <br>
