@@ -30,6 +30,12 @@
 <% graph = Koala::Facebook::API.new(signed_request.access_token) %>
 <% user = graph.get_object('me', fields:'email') %>
 <% puts user['email'] %>
+<% $currentUser = User.find_by(email: user['email']) %>
+<% puts $currentUser.name %>
+<% $currentUser.courses.push(Course.first) %>
+<% puts $currentUser.courses.first.name %>
+
+
 
 <p id="notice"><%= notice %></p>
 <table id="dt" class="table table-bordered table-sm hoverTable" cellspacing="0" width="100%">
