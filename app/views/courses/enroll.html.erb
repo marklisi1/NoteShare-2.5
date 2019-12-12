@@ -1,26 +1,24 @@
-<%= bootstrap_form_with(model: course, local: true) do |form| %>
-  <% if course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+<%= bootstrap_form_with(model: @course, local: true) do |form| %>
+  
 
-      <ul>
-        <% course.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="w-25 p-3" style="background-color:#F0F0F0">
+    
+    
     <div class="field">
-      <%= form.text_field :name %>
-    </div>
+      
+      
+<%= form_with(url: "courses#enrollcourse", method: "post") do %>
+  <%= label_tag(:q, "Course ID:") %>
+  <%= text_field_tag(:q) %>
   
-    <div class="field">
-      <%= form.text_field :prof %>
-    </div>
+  <%= submit_tag("Enroll") %>
+<% end %>
+      
+      
+
   
-    <div class="actions">
-      <%= form.submit %>
-    </div>
+
   </div>
+  
+  
 <% end %>

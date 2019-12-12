@@ -3,8 +3,14 @@ class CoursesController < ApplicationController
   #helper_method :idToModel
 
 
-  
 
+
+  
+  def enrollcourse
+    
+    p '-------------------------'
+      
+  end
 
 
 
