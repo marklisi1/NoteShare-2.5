@@ -36,6 +36,8 @@ class NotesheetsController < ApplicationController
             end
             @notesheet.save!
         end
+        
+        
         format.html { redirect_to @notesheet, notice: 'Notesheet was successfully created.' }
         format.json { render :show, status: :created, location: @notesheet }
       else

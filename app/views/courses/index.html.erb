@@ -16,7 +16,7 @@
       <h1 id="welcomehead"></h1>
     </div>
     <div class="col-sm text-center">
-      <%= link_to 'Edit User Info (doesnt work yet)', edit_user_path($currentUser), :class => "btn btn-info", :style => "color: black" %>
+      <%= link_to 'Edit User Info (doesnt work yet)', '/', :class => "btn btn-info", :style => "color: black" %>
     </div>
     <div class="col-sm text-center">
       <a class="btn btn-info" role="button" onclick="startLogout();">Log Out</a>
@@ -25,15 +25,11 @@
 </div>
 <br>
 <h1>Your Courses</h1>
-<% auth = FbGraph2::Auth.new('680538159135435', '728f73e88988a9e5c94e879431252701') %>
-<% signed_request = auth.from_cookie cookies %>
-<% graph = Koala::Facebook::API.new(signed_request.access_token) %>
-<% user = graph.get_object('me', fields:'email') %>
-<% puts user['email'] %>
-<% $currentUser = User.find_by(email: user['email']) %>
-<% puts $currentUser.name %>
+
+
+<% $currentUser = User.find_by(email: $currentUserEmail) %>
 <% $currentUser.courses.push(Course.first) %>
-<% puts $currentUser.courses.first.name %>
+
 
 
 

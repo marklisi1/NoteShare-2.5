@@ -30,3 +30,12 @@ Student can enroll in courses, upload notes for that course, and view and downlo
 <div class="footer"><a class="btn btn-info-outline" role="button" href="https://www.termsfeed.com/privacy-policy/2abc11e63b08b9fb142deeeb30dea297"  style="color: black">Click here to view our Privacy Policy</a></div></div>
 </body>
 
+
+<% auth = FbGraph2::Auth.new('680538159135435', '728f73e88988a9e5c94e879431252701') %>
+<% signed_request = auth.from_cookie cookies %>
+<% graph = Koala::Facebook::API.new(signed_request.access_token) %>
+<% user = graph.get_object('me', fields:'email') %>
+<% $currentUserEmail = user['email'] %>
+
+
+

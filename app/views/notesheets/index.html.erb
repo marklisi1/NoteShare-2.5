@@ -20,7 +20,6 @@
     <tr>
       <th>Title</th>
       <th>Course</th>
-      <th>Author</th>
       <th>Date Created</th>
       <th>Download</th>
       <th>Edit</th>
@@ -28,13 +27,17 @@
       <!--<th colspan="2">Actions</th>-->
     </tr>
   </thead>
+  
+  
+
+<% $currentUser = User.find_by(email: $currentUserEmail) %>
+
 
   <tbody>
     <% $currentUser.notesheets.each do |notesheet| %>
       <tr>
         <td><%= link_to notesheet.title, notesheet, :style=>'color:#000000;' %></td>
         <td><%= idToModel(notesheet.course_id, Course).name %></td>
-        <td><%= idToModel(notesheet.user_id, User).name %></td>
         <td><%= notesheet.date_created %></td>
         <td>
           <a href=<%=notesheet.notepic.url%> download><i class="fas fa-file-download", style='color:#000000'></i><a>

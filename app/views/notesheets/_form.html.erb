@@ -111,7 +111,6 @@
         <div id="uploading" class="tab-pane fade">
           <div class="field">
             <a href="#" data-toggle="tooltip" title="For best results while viewing, upload a JPG or JPEG."> <i class="fas fa-info-circle", style="color: #333;"></i></a>
-            <%= image_tag(@notesheet.notepics_url) if @notesheet.notepic? %>
             <%= form.file_field :notepic, hide_label: true%>
             <%= form.hidden_field :notepic_cache %>
             
@@ -127,8 +126,10 @@
       </div>
     
       <div class="field">
-          <%= form.collection_select :user_id, User.order(:name),:id,:name, include_blank: true %>
+          <%= form.hidden_field :user_id, value: $currentUser.id %>
       </div>
+      
+      
     
       <div class="field">
         <%= form.date_field :date_created, label: "Class date", max: Date.today, value: Date.today %>
