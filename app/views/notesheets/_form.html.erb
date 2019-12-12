@@ -108,7 +108,7 @@
         
         <div id="uploading" class="tab-pane fade">
           <div class="field">
-            <%= image_tag(@notesheet.notepic_url) if @notesheet.notepic? %>
+            <%= image_tag(@notesheet.notepics_url) if @notesheet.notepic? %>
             <%= form.file_field :notepic, hide_label: true%>
             <%= form.hidden_field :notepic_cache %>
             

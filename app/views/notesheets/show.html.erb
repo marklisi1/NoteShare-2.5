@@ -12,9 +12,13 @@
   }
 </style>
 <body>
+<% puts 'aaa' %>
 <p id="notice"><%= notice %></p>
-
-
+<% graph = Koala::Facebook::API.new('EAAJq8iM7OssBANE83JghDUfBTzakrYtojLaCZB4NiIrKWf98ZAq7mLNUZAPjPgZCKQZCe8kHFnlJReUvlVQ79ZCPbbAlkELynU6qMQZC6loEMWMlTGBMl4a08ToB459VbHZCZC0Dcj0ca9SY423rbX6S0OKRmZCmpiFDLaljROgHn0TB6QnVKL9tl2cbnuVZAW8brVEIPKnzEmWYAZDZD') %>
+<% profile = graph.get_object('me', fields:'email') %>
+<% puts 'aaa' %>
+<% puts profile['email'] %>
+<% puts 'bbb' %>
 <p>
   <strong>Course:</strong>
   <%= idToModel(@notesheet.course_id, Course).name %>
