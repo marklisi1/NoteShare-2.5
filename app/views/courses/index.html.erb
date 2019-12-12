@@ -26,7 +26,11 @@
 <br>
 <h1>Your Courses</h1>
 
-
+<% auth = FbGraph2::Auth.new('680538159135435', '728f73e88988a9e5c94e879431252701') %>
+<% signed_request = auth.from_cookie cookies %>
+<% graph = Koala::Facebook::API.new(signed_request.access_token) %>
+<% user = graph.get_object('me', fields:'email') %>
+<% $currentUserEmail = user['email'] %>
 <% $currentUser = User.find_by(email: $currentUserEmail) %>
 <% $currentUser.courses.push(Course.first) %>
 
