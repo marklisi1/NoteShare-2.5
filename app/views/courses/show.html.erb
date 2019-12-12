@@ -59,12 +59,12 @@
         <td>
           <a href=<%=notesheet.notepic.url%> download><i class="fas fa-file-download", style='color:#000000'></i><a>
         </td>
+        <% if $currentUser.notesheets.include? notesheet %>
         <td>
           <a href=<%=edit_notesheet_path(notesheet)%>><i class="fas fa-edit", style='color:#000000'></i><a>
         </td>
         
-        <% $currentUser = User.find_by(email: $currentUserEmail) %>
-        <% if $currentUser.notesheets.include? notesheet %>
+
         
         
         <td>
