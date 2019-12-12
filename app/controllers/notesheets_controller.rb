@@ -28,8 +28,7 @@ class NotesheetsController < ApplicationController
     
     respond_to do |format|
       if @notesheet.save
-        if @notesheet.content 
-            
+        if !@notesheet.notepic.url
             path = "#{@notesheet.title}-#{@notesheet.id}.txt"
             File.open(path, "w+") do |f|
               f.write(@notesheet.content)
