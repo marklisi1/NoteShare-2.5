@@ -60,7 +60,11 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def login
+    @user = User.koala(request.env['omniauth.auth']['credentials'])
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

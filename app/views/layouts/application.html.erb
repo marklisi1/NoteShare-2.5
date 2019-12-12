@@ -47,7 +47,7 @@
   
     function checkLoginState() {               // Called when a person is finished with the Login Button.
       FB.getLoginStatus(function(response) {   // See the onlogin handler
-        console.log('got toke');
+        console.log(response.authResponse.accessToken);
       });
     }
     
@@ -56,7 +56,8 @@
         appId            : '680538159135435',
         autoLogAppEvents : true,
         xfbml            : true,
-        version          : 'v5.0'
+        version          : 'v5.0',
+        cookie           : true
       });
       
       FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
@@ -78,7 +79,7 @@
       console.log('Welcome!  Fetching your information.... ');
       FB.api('/me', function(response) {
         console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
+        document.getElementById('welcomehead').innerHTML =
           'Welcome, ' + response.name + '!';
       });
     }
@@ -97,7 +98,6 @@
     
     function reroute(response){
       if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-        console.log(response.authResponse.accessToken);
         window.location = "/courses"  
       } else {                                 // Not logged into your webpage or we are unable to tell.
         window.location = "/"
@@ -111,6 +111,13 @@
         document.getElementById('welcomehead').innerHTML =
           'Welcome, ' + response.name + '!';
       });
+    }
+    
+    function routeOnLoad(){
+      FB.getLoginStatus(function(response) {   // See the onlogin handler
+        reroute(response);
+      });
+      
     }
       
     
