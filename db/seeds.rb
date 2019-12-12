@@ -68,8 +68,7 @@ userlist.each do |user|
     User.create!(user)
 end
 
-fbUsers = [{:name => "Mark Lisi", :email => "mlisi@ymail.com", :password => "my password shhh", :usertype => "Student"},
-            {:name => "Rosalind Kidwell", :email => "roz.kidwell1998@yahoo.com", :password => "12345678", :usertype => "Student"},
+fbUsers = [ {:name => "Rosalind Kidwell", :email => "roz.kidwell1998@yahoo.com", :password => "12345678", :usertype => "Student"},
             {:name => "Sarper Tutuncuoglu", :email => "sarpertutuncuoglu@gmail.com", :password => "seeecret", :usertype => "Student"}]
 
 
@@ -79,14 +78,9 @@ end
 
 i = 0
 
-names = ['Literature', 'Spanish', 'Math', 'Anthropology', 'Biology', 'Calculus', 'Physics', 'Finance', 'Management']
+names = ['Literature', 'Spanish', 'Math', 'Anthropology', 'Biology', 'Calculus',]
 fbUsers.each do |user|
     userRecord = User.find_by(email: user[:email])
-    course = Course.find_by(name: names[i])
-    userRecord.courses.push(Course.find_by(name: names[i]))
-    course.users.push(userRecord)
-    i += 1
-    userRecord.courses.push(Course.find_by(name: names[i]))
     course = Course.find_by(name: names[i])
     userRecord.courses.push(Course.find_by(name: names[i]))
     course.users.push(userRecord)
