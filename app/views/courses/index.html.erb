@@ -16,7 +16,7 @@
       <h1 id="welcomehead"></h1>
     </div>
     <div class="col-sm text-center">
-      <%= link_to 'Edit User Info (doesnt work yet)', '/', :class => "btn btn-info", :style => "color: black" %>
+      <%= link_to 'Edit User Info (doesnt work yet)', edit_user_path($currentUser), :class => "btn btn-info", :style => "color: black" %>
     </div>
     <div class="col-sm text-center">
       <a class="btn btn-info" role="button" onclick="startLogout();">Log Out</a>
