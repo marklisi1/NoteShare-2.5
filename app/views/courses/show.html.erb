@@ -35,6 +35,7 @@
       <th>Date Created</th>
       <th>Download</th>
       <th>Edit</th>
+      <th>Delete</th>
       <!--<th colspan="2">Actions</th>-->
     </tr>
   </thead>
@@ -50,6 +51,11 @@
         </td>
         <td>
           <a href=<%=edit_notesheet_path(notesheet)%>><i class="fas fa-edit", style='color:#000000'></i><a>
+        </td>
+        <td>
+          <%= button_to notesheet, method: :delete, :class => "btn btn-outline-dark", :style=>'color:#000000', data: {confirm: 'Are you sure?'} do %>
+            <i class="fas fa-trash-alt"></i>
+          <%end%>
         </td>
       </tr>
     <% end %>
