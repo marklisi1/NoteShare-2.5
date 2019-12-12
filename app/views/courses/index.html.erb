@@ -31,7 +31,7 @@
 <% user = graph.get_object('me', fields:'email') %>
 <% $currentUserEmail = user['email'] %>
 <% $currentUser = User.find_by(email: $currentUserEmail) %>
-<% $currentUser.courses.push(Course.first) %>
+
 
 
 
