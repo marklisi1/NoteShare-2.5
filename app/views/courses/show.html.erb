@@ -15,6 +15,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <body>
+<% auth = FbGraph2::Auth.new('680538159135435', '728f73e88988a9e5c94e879431252701') %>
+<% signed_request = auth.from_cookie cookies %>
+<% graph = Koala::Facebook::API.new(signed_request.access_token) %>
+<% user = graph.get_object('me', fields:'email') %>
+<% $currentUserEmail = user['email'] %>
+<% $currentUser = User.find_by(email: $currentUserEmail) %>
+
+<% if not $currentUser.courses.include? Course.find_by(name: @course.name) %> <!-- if user has never been on course page -->
+  <% $currentUser.courses.push(Course.find_by(name: @course.name)) %> <!-- add new course!-->
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h2><%= @course.name %></h2>

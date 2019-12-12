@@ -15,6 +15,7 @@ gem "mini_magick"
 gem 'carrierwave-imageoptimizer'
 gem "koala"
 gem 'fb_graph2'
+gem "gon"
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

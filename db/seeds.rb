@@ -79,15 +79,24 @@ end
 
 i = 0
 
-names = ['Literature', 'Spanish', 'French', 'Anthropology', 'Biology', 'Calculus', 'Physics', 'Finance', 'Linear Algebra']
+names = ['Literature', 'Spanish', 'Math', 'Anthropology', 'Biology', 'Calculus', 'Physics', 'Finance', 'Management']
 fbUsers.each do |user|
     userRecord = User.find_by(email: user[:email])
+    course = Course.find_by(name: names[i])
     userRecord.courses.push(Course.find_by(name: names[i]))
+    course.users.push(userRecord)
     i += 1
     userRecord.courses.push(Course.find_by(name: names[i]))
+    course = Course.find_by(name: names[i])
+    userRecord.courses.push(Course.find_by(name: names[i]))
+    course.users.push(userRecord)
     i += 1
     userRecord.courses.push(Course.find_by(name: names[i]))
+    course = Course.find_by(name: names[i])
+    userRecord.courses.push(Course.find_by(name: names[i]))
+    course.users.push(userRecord)
     i += 1
+    
 end
 
 users = User.all
