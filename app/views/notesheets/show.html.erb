@@ -32,25 +32,32 @@
 
 <% unless @notesheet.content.nil? %>
   <p>
-    <strong>Content:</strong>
     <%= @notesheet.content %>
   </p>
 <%end%>
 
-<div class="w-50 p-3" style="background-color:#F0F0F0">
+<div style="background-color:#F0F0F0">
   <div class="noteimages">
-    <%= image_tag(@notesheet.notepic.url, alt: 'Image of notes') if @notesheet.notepic? %>
+    <%= image_tag(@notesheet.notepic.url, alt: 'Image of notes') if !@notesheet.content? %>
   </div>
 </div>
 
 
 
 
-<%= link_to( edit_notesheet_path(@notesheet)) do%>
+<%= link_to(edit_notesheet_path(@notesheet), :style=>'color:#000000') do%>
   <i class="fas fa-edit", style='color:#000000'></i>Edit
 <%end%>
+<br>
 
-<%= link_to 'Back', notesheets_path, :style=>'color:#000000;' %>
+
+
+<br>
+<%= link_to(notesheets_path(@notesheet), :style=>'color:#000000') do%>
+  <i class="fas fa-chevron-circle-left", style='color:#000000'></i>Back
+<%end%>
+
+
 
 
 </body>
