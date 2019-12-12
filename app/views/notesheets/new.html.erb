@@ -4,5 +4,7 @@
 
 <%= render 'form', notesheet: @notesheet %>
 
-<%= link_to 'Back', notesheets_path %>
+<%= link_to(notesheets_path(@notesheet), :style=>'color:#000000') do%>
+  <i class="fas fa-chevron-circle-left", style='color:#000000'></i>Back
+<%end%>
 </body>
