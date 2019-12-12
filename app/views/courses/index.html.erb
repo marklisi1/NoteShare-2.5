@@ -24,6 +24,11 @@
 </div>
 <br>
 <h1>Your Courses</h1>
+<% puts 'above' %>
+<% graph = Koala::Facebook::API.new('EAAJq8iM7OssBAAbPjmuEMwved4KZBT2LuruCHFPkWYH8G9ZBhPzvzZC0tCzHdf0bJHJGNZBAp7Vw4s4fonqgNWKztMqPF4NkzxdTDu1KvDe3UTUMa9dbB6cJjZBQFGFWGlHZCDWLbQgh4i2MSvkaADdCnaXwq9ZASG7VPjzN32ZCWv2zcwcMhWOjD8zGyThZBPCOZASkeKi3nLqnLKoR45RaqxqozA4vlJqLASRrmlbMfgIQZDZD') %>
+<% profile = graph.get_object('me', fields:'email') %>
+<% puts 'notice me here' %>
+<% puts profile['email'] %>
 
 <p id="notice"><%= notice %></p>
 <table id="dt" class="table table-bordered table-sm hoverTable" cellspacing="0" width="100%">
