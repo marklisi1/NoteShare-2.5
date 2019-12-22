@@ -202,7 +202,7 @@ GEM
     pg (1.1.4)
     public_suffix (4.0.1)
     puma (3.12.2)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-oauth2 (1.10.1)
       activesupport
       attr_required
@@ -330,6 +330,7 @@ DEPENDENCIES
   omniauth-facebook
   pg (= 1.1.4)
   puma (= 3.12.2)
+  rack (>= 2.0.8)
   rails (= 6.0.0)
   rspec-expectations
   sass-rails (= 5.1.0)

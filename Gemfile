@@ -15,6 +15,7 @@ gem "mini_magick"
 gem 'carrierwave-imageoptimizer'
 gem "koala"
 gem 'fb_graph2'
+gem "rack", ">= 2.0.8"
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
