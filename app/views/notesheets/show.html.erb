@@ -12,6 +12,8 @@
   }
 </style>
 <body>
+
+
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Course:</strong>
@@ -39,12 +41,6 @@
     <%= image_tag(@notesheet.notepic.url, alt: 'Image of notes') if !@notesheet.content? %>
   </div>
 </div>
-
-
-<%= link_to(edit_notesheet_path(@notesheet), :style=>'color:#000000') do%>
-  <i class="fas fa-edit", style='color:#000000'></i>Edit
-<%end%>
-<br>
 
 <br>
 <%= link_to 'Back to Courses', courses_path, :class => "btn btn-default",  :style => "color:black" %>

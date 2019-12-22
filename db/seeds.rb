@@ -42,25 +42,25 @@ end
 
 
 
-userlist = [{:name => "Carl Hart", :email => "carl.hart@gmail.com", :password => "apple"},
-            {:name => "Joe Vance", :email => "joe.vance@gmail.com", :password => "banana"},
-            {:name => "Piers McLean", :email => "piers.mclean@gmail.com", :password => "pear"},
-            {:name => "Irene Springer", :email => "irene.springer@gmail.com", :password => "peach"},
-            {:name => "Kevin Wilkins", :email => "kevin.wilkins@gmail.com", :password => "pineapple"},
-            {:name => "Jake Macleod", :email => "jake.macleod@gmail.com", :password => "orange"},
-            {:name => "Madeleine Piper", :email => "madeleine.piper@gmail.com", :password => "watermelon"},
-            {:name => "Nicholas James", :email => "nicholas.james@gmail.com", :password => "honeydew"},
-            {:name => "Sebastian Ball", :email => "sebastian.ball@gmail.com", :password => "cantalope"},
-            {:name => "Sam Reid", :email => "sam.reid@gmail.com", :password => "blueberry"},
-            {:name => "Carolyn Fisher", :email => "carolyn.fisher@gmail.com", :password => "cherry"},
-            {:name => "Samantha Hodges", :email => "samantha.hodges@gmail.com", :password => "blackberry"},
-            {:name => "Brian Kelly", :email => "brian.kelly@gmail.com", :password => "raspberry"},
-            {:name => "Carl Wright", :email => "carl.wright@gmail.com", :password => "kumquat"},
-            {:name => "Rebecca Macdonald", :email => "rebecca.macdonald@gmail.com", :password => "clementine"},
-            {:name => "Maria Hunter", :email => "maria.hunter@gmail.com", :password => "papaya"},
-            {:name => "Mary Fraser", :email => "mary.fraser@gmail.com", :password => "mango"},
-            {:name => "Boris Reid", :email => "boris.reid@gmail.com", :password => "grape"},
-            {:name => "Sarah Hemmings", :email => "sarah.hemmings@gmail.com", :password => "lemon"},
+userlist = [{:name => "Carl Hart", :email => "carl.hart@gmail.com", :password => "apple", :usertype => "Student"},
+            {:name => "Joe Vance", :email => "joe.vance@gmail.com", :password => "banana", :usertype => "Student"},
+            {:name => "Piers McLean", :email => "piers.mclean@gmail.com", :password => "pear", :usertype => "Student"},
+            {:name => "Irene Springer", :email => "irene.springer@gmail.com", :password => "peach", :usertype => "Student"},
+            {:name => "Kevin Wilkins", :email => "kevin.wilkins@gmail.com", :password => "pineapple", :usertype => "Student"},
+            {:name => "Jake Macleod", :email => "jake.macleod@gmail.com", :password => "orange", :usertype => "Student"},
+            {:name => "Madeleine Piper", :email => "madeleine.piper@gmail.com", :password => "watermelon", :usertype => "Student"},
+            {:name => "Nicholas James", :email => "nicholas.james@gmail.com", :password => "honeydew", :usertype => "Student"},
+            {:name => "Sebastian Ball", :email => "sebastian.ball@gmail.com", :password => "cantalope", :usertype => "Student"},
+            {:name => "Sam Reid", :email => "sam.reid@gmail.com", :password => "blueberry", :usertype => "Student"},
+            {:name => "Carolyn Fisher", :email => "carolyn.fisher@gmail.com", :password => "cherry", :usertype => "Student"},
+            {:name => "Samantha Hodges", :email => "samantha.hodges@gmail.com", :password => "blackberry", :usertype => "Student"},
+            {:name => "Brian Kelly", :email => "brian.kelly@gmail.com", :password => "raspberry", :usertype => "Student"},
+            {:name => "Carl Wright", :email => "carl.wright@gmail.com", :password => "kumquat", :usertype => "Student"},
+            {:name => "Rebecca Macdonald", :email => "rebecca.macdonald@gmail.com", :password => "clementine", :usertype => "Student"},
+            {:name => "Maria Hunter", :email => "maria.hunter@gmail.com", :password => "papaya", :usertype => "Student"},
+            {:name => "Mary Fraser", :email => "mary.fraser@gmail.com", :password => "mango", :usertype => "Student"},
+            {:name => "Boris Reid", :email => "boris.reid@gmail.com", :password => "grape", :usertype => "Student"},
+            {:name => "Sarah Hemmings", :email => "sarah.hemmings@gmail.com", :password => "lemon", :usertype => "Student"},
             {:name => "Trevor Dowd", :email => "trevor.dowd@gmail.com", :password => "lime", :usertype => "Student"}
             ]
 
@@ -68,9 +68,30 @@ userlist.each do |user|
     User.create!(user)
 end
 
+fbUsers = [ {:name => "Rosalind Kidwell", :email => "roz.kidwell1998@yahoo.com", :password => "12345678", :usertype => "Student"},
+            {:name => "Sarper Tutuncuoglu", :email => "sarpertutuncuoglu@gmail.com", :password => "seeecret", :usertype => "Student"}]
 
 
+fbUsers.each do |user|
+    User.create!(user)
+end
 
+i = 0
+
+names = ['Literature', 'Spanish', 'Math', 'Anthropology', 'Biology', 'Calculus',]
+fbUsers.each do |user|
+    userRecord = User.find_by(email: user[:email])
+    course = Course.find_by(name: names[i])
+    userRecord.courses.push(Course.find_by(name: names[i]))
+    course.users.push(userRecord)
+    i += 1
+    userRecord.courses.push(Course.find_by(name: names[i]))
+    course = Course.find_by(name: names[i])
+    userRecord.courses.push(Course.find_by(name: names[i]))
+    course.users.push(userRecord)
+    i += 1
+    
+end
 
 users = User.all
 
@@ -82,8 +103,8 @@ x = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem
 y = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
 Course.all.each do |course|
   
-  course.notesheets.create!(:title => "Unit #{i}", :course_id => course.id, :user_id => users[i % userCount].id, :date_created => "2019-12-10", :content => "#{x}")
-  course.notesheets.create!(:title => "Unit #{i+1}", :content => "#{y}", :course_id => course.id, :user_id => users[(i + 1) % userCount].id, :date_created => "2019-12-11")
+  course.notesheets.create!(:title => "Unit #{i}", :course_id => course.id, :user_id => users[i % userCount].id, :date_created => "2019-11-24", :content => "#{x}")
+  course.notesheets.create!(:title => "Unit #{i+1}", :content => "#{y}", :course_id => course.id, :user_id => users[(i + 1) % userCount].id, :date_created => "2019-12-1")
 
     i += 1
 end

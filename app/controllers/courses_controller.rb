@@ -5,12 +5,6 @@ class CoursesController < ApplicationController
 
 
 
-  
-  def enrollcourse
-    
-    p '-------------------------'
-      
-  end
 
 
 

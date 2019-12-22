@@ -6,7 +6,23 @@
     background-color: #F2F4F4;
   }
 </style>
+<script>
 
+function enroll(){
+  var ids = document.getElementById('idList').innerHTML;
+  ids = ids.slice(1, -1)
+  ids = ids.split(", ")
+  var courseID = document.getElementById('courseIDField').value;
+  console.log(ids.includes(courseID));
+  if (ids.includes(courseID)){
+    window.location = '/courses/' + courseID
+  }
+  else {
+    document.getElementById('invalidID').innerHTML ='Invalid course ID.' ;
+  }
+  // window.location = '/courses/' + courseID
+}
+</script>
 
 <body onload = "checkLoginState(); welcome();">
 <body>
@@ -31,7 +47,7 @@
 <% user = graph.get_object('me', fields:'email') %>
 <% $currentUserEmail = user['email'] %>
 <% $currentUser = User.find_by(email: $currentUserEmail) %>
-<% $currentUser.courses.push(Course.first) %>
+
 
 
 
@@ -58,13 +74,21 @@
   </tbody>
 </table>
 <br>
+<div id='enrollField'>
+  <p>Don't see the course you're looking for? Enter your course's ID below (your professor will give this to you) <br>
+  <input type="text" id="courseIDField">
 
-<div>
-  <p>Don't see your course?</p>
-  <%= link_to '+ Join a Class', new_course_path, :class => "btn btn-outline-secondary",  :style => "color:black" %>
+  
+  <a class="btn btn-outline-secondary" role="button" onclick="enroll();">Enroll</a>
+  
 </div>
+<div id='invalidID'></div>
+<br>
 
 <div>
   <%= link_to 'Your Notesheets', notesheets_path, :class => "btn btn-outline-secondary",  :style => "color:black" %>
 </div>
+
+<div id='invalidID'></div>
+<div hidden id='idList'><%= Course.ids %></div>
 </body>

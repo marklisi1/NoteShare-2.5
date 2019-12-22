@@ -71,6 +71,12 @@
   function signUp() {    
   }
 </script>
+<% auth = FbGraph2::Auth.new('680538159135435', '728f73e88988a9e5c94e879431252701') %>
+<% signed_request = auth.from_cookie cookies %>
+<% graph = Koala::Facebook::API.new(signed_request.access_token) %>
+<% user = graph.get_object('me', fields:'email') %>
+<% $currentUserEmail = user['email'] %>
+<% $currentUser = User.find_by(email: $currentUserEmail) %>
 
 <%= bootstrap_form_for(@notesheet) do |form| %>
   <% if notesheet.errors.any? %>
@@ -88,7 +94,7 @@
     <form>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <%= form.collection_select :course_id, Course.order(:name),:id,:name, include_blank: true %>
+          <%= form.collection_select :course_id, $currentUser.courses.order(:name),:id,:name, include_blank: true %>
         </div>
     
         <div class="form-group col-md-6">
